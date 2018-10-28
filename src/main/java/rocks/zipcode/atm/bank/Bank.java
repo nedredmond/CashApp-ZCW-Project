@@ -14,11 +14,27 @@ public class Bank {
 
     public Bank() {
         accounts.put(1000, new BasicAccount(new AccountData(
-                1000, "Example 1", "example1@gmail.com", 500
+                1000, "Gulliver Grimwald", "ggrim@gmail.com", 500
+        )));
+
+        accounts.put(6666, new PremiumAccount(new AccountData(
+                6666, "B. L. Zebub", "mephis@hotmail.com", 666
         )));
 
         accounts.put(2000, new PremiumAccount(new AccountData(
-                2000, "Example 2", "example2@gmail.com", 200
+                2000, "Richard Ricardo", "rricardo@business.com", 20000
+        )));
+
+        accounts.put(0420, new BasicAccount(new AccountData(
+                0420, "Guy Dudero", "lmfao4eva@ymail.com", 69
+        )));
+
+        accounts.put(9999, new PremiumAccount(new AccountData(
+                9999, "Final Boss", "bosskey@gmail.com", 9999
+        )));
+
+        accounts.put(0001, new BasicAccount(new AccountData(
+                0001, "Bill Busker", "bboy@yandex.com", 0
         )));
     }
 
@@ -41,9 +57,9 @@ public class Bank {
 
     public ActionResult<AccountData> withdraw(AccountData accountData, int amount) {
         Account account = accounts.get(accountData.getId());
-        boolean ok = account.withdraw(amount);
+        boolean canWithdraw = account.withdraw(amount);
 
-        if (ok) {
+        if (canWithdraw) {
             return ActionResult.success(account.getAccountData());
         } else {
             return ActionResult.fail("Withdraw failed: " + amount + ". Account has: " + account.getBalance());

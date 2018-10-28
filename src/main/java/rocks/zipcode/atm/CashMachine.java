@@ -22,6 +22,9 @@ public class CashMachine {
         accountData = data;
     };
 
+    private boolean errorExists = false;
+    private String errorMessage = null;
+
     public void login(int id) {
         tryCall(
                 () -> bank.getAccountById(id),
@@ -55,17 +58,25 @@ public class CashMachine {
 
     @Override
     public String toString() {
-        return accountData != null ? accountData.toString() : "Try account 1000 or 2000 and click submit.";
+        String displayString;
+        if (errorExists) {
+            displayString = errorMessage;
+        } else {
+            displayString = accountData != null ? accountData.toString() : "Try account 1000 or 2000 and click submit.";
+        }
+        return displayString;
     }
 
     public <T> void tryCall(Supplier<ActionResult<T> > action, Consumer<T> postAction) {
         try {
             ActionResult<T> result = action.get();
             if (result.isSuccess()) {
+                errorExists = false;
                 T data = result.getData();
                 postAction.accept(data);
             } else {
-                String errorMessage = result.getErrorMessage();
+                errorExists = true;
+                errorMessage = result.getErrorMessage();
                 throw new RuntimeException(errorMessage);
             }
         } catch (Exception e) {
