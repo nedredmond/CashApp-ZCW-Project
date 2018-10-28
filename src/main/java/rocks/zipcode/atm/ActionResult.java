@@ -20,9 +20,7 @@ public class ActionResult<T> {
         return data;
     }
 
-    public String getErrorMessage() {
-        return errorMessage;
-    }
+    public String getErrorMessage() { return errorMessage; }
 
     public boolean isSuccess() {
         return data != null;

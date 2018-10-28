@@ -47,7 +47,7 @@ public class CashMachine {
         }
     }
 
-    public void exit() {
+    public void logOut() {
         if (accountData != null) {
             accountData = null;
         }
@@ -58,7 +58,7 @@ public class CashMachine {
         return accountData != null ? accountData.toString() : "Try account 1000 or 2000 and click submit.";
     }
 
-    private <T> void tryCall(Supplier<ActionResult<T> > action, Consumer<T> postAction) {
+    public <T> void tryCall(Supplier<ActionResult<T> > action, Consumer<T> postAction) {
         try {
             ActionResult<T> result = action.get();
             if (result.isSuccess()) {
