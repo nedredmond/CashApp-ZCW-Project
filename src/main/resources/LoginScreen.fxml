@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="content" prefHeight="400.0" prefWidth="450.0" style="-fx-border-color: coral; -fx-border-width: 12; -fx-border-radius: 1; -fx-border-insets: 5;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rocks.zipcode.atm.ControllerFXML">
+   <children>
+      <FlowPane alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="24.0" text="Welcome to Zip Cloud Bank" textAlignment="CENTER" textFill="CORAL" wrapText="true">
+               <font>
+                  <Font name="Futura Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="BOTTOM_CENTER" hgap="9.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label alignment="BOTTOM_RIGHT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="24.0" text="Email:" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Futura Medium" size="18.0" />
+               </font>
+            </Label>
+            <JFXTextField focusColor="CORAL">
+               <font>
+                  <Font name="Futura Medium" size="18.0" />
+               </font>
+            </JFXTextField>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="8.0" />
+         </padding>
+      </FlowPane>
+      <FlowPane alignment="TOP_CENTER" hgap="9.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label alignment="BOTTOM_RIGHT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="24.0" text="PIN:" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Futura Medium" size="18.0" />
+               </font>
+            </Label>
+            <JFXPasswordField focusColor="CORAL">
+               <font>
+                  <Font name="Futura Medium" size="18.0" />
+               </font>
+            </JFXPasswordField>
+         </children>
+         <padding>
+            <Insets top="8.0" />
+         </padding>
+      </FlowPane>
+      <FlowPane alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <JFXButton fx:id="btnLogin" alignment="CENTER" onAction="#loginAction" style="-fx-background-color: coral;" text="Log In" textFill="WHITE">
+               <font>
+                  <Font name="Futura Medium" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </FlowPane>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</VBox>
