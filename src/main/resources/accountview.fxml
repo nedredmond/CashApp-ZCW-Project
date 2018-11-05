@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?scenebuilder-stylesheet vista.css?>
+<?import com.jfoenix.controls.*?>
+
+<!--<StackPane-->
+
+<?import javafx.scene.text.Font?>
+
+<!--<StackPane fx:id="vista2" xmlns:fx="http://javafx.com/fxml" fx:controller="rocks.zipcode.atm.AccountController">-->
+<!--<children>-->
+<!--<Button mnemonicParsing="false" onAction="#previousPane" text="Previous Pane" />-->
+<!--</children>-->
+<!--</StackPane>-->
+
+<VBox fx:id="vista2" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rocks.zipcode.atm.AccountController">
+  <children>
+    <JFXTabPane fx:id="tabPane" prefHeight="60.0" prefWidth="466.0">
+      <tabs>
+            <Tab fx:id="tabInfo" onSelectionChanged="#displayInfo" text="Account Info">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        <Tab fx:id="tabWithdraw" onSelectionChanged="#transactionTab" text="Withdraw">
+          <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          </content>
+        </Tab>
+        <Tab fx:id="tabDeposit" onSelectionChanged="#transactionTab" text="Deposit">
+          <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          </content>
+        </Tab>
+        <Tab fx:id="tabLogout" onSelectionChanged="#logOut" text="Log Out">
+          <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          </content>
+        </Tab>
+      </tabs>
+    </JFXTabPane>
+      <FlowPane fx:id="amountEntryPane" alignment="CENTER_LEFT" columnHalignment="CENTER" hgap="15.0" prefHeight="30.0" prefWidth="466.0" style="-fx-background-color: white;">
+         <children>
+            <TextField fx:id="amountField" disable="true" maxWidth="1.7976931348623157E308" prefHeight="36.0" prefWidth="121.0" text="Amount">
+               <font>
+                  <Font name="Futura Medium" size="18.0" />
+               </font>
+            </TextField>
+            <JFXButton fx:id="amountSubmit" disable="true" onAction="#submit" maxWidth="1.7976931348623157E308" ripplerFill="CORAL" text="Submit" style="-fx-background-color: coral;" textFill="WHITE">
+               <font>
+                  <Font name="Futura Bold" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </FlowPane>
+    <JFXTextArea fx:id="textArea" editable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="180.0" prefWidth="450.0" text="TESTTESTESTTESTTESTTESTTESTTESTTESTTESTTESTTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST">
+         <font>
+            <Font name="Futura Medium" size="14.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets left="8.0" right="8.0" />
+         </VBox.margin>
+      </JFXTextArea>
+    <JFXTreeTableView fx:id="transactionsView" prefHeight="120.0" prefWidth="466.0" />
+  </children>
+</VBox>

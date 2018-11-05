@@ -38,13 +38,34 @@ public class Bank {
         )));
     }
 
-    public ActionResult<AccountData> getAccountById(int id) {
+    public ActionResult<AccountData> getAccountByPIN(int id) {
         Account account = accounts.get(id);
 
         if (account != null) {
             return ActionResult.success(account.getAccountData());
         } else {
             return ActionResult.fail("No account with id: " + id + "\nTry account 1000 or 2000");
+        }
+    }
+
+//    public ActionResult<AccountData> getAccountByEmail(String email) {
+//        Account account = accounts.get(email);
+//
+//        if (account != null) {
+//            return ActionResult.success(account.getAccountData());
+//        } else {
+//            return ActionResult.fail("No account with email: " + email);
+//        }
+//    }
+
+    public ActionResult<AccountData> getAccountByEmailAndPIN(String email, int pin) {
+        Account account = accounts.get(pin);
+        String accountEmail = account.getAccountData().getEmail();
+
+        if (account != null && email.equals(accountEmail)) {
+            return ActionResult.success(account.getAccountData());
+        } else {
+            return ActionResult.fail("Login failed. Please confirm your credentials and try again.");
         }
     }
 

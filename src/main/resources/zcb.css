@@ -1,0 +1,7 @@
+.jfx-tab-pane .depth-container .tab-header-area .tab-header-background {
+    -fx-background-color: coral;
+}
+
+.jfx-tab-pane:top .depth-container .tab-header-area .headers-region .tab .jfx-rippler .tab-container .tab-label .text {
+    -fx-font: 18 Futura;
+}

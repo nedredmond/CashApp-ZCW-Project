@@ -18,6 +18,8 @@ public class CashMachine {
         this.bank = bank;
     }
 
+    public final static CashMachine INSTANCE = new CashMachine(new Bank());
+
     private Consumer<AccountData> update = data -> {
         accountData = data;
     };
@@ -25,9 +27,23 @@ public class CashMachine {
     private boolean errorExists = false;
     private String errorMessage = null;
 
-    public void login(int id) {
+//    public void login(String email) {
+//        tryCall(
+//                () -> bank.getAccountByEmail(email),
+//                update
+//        );
+//    }
+
+    public void login(int pin) {
         tryCall(
-                () -> bank.getAccountById(id),
+                () -> bank.getAccountByPIN(pin),
+                update
+        );
+    }
+
+    public void login(String email, int pin) {
+        tryCall(
+                () -> bank.getAccountByEmailAndPIN(email,pin),
                 update
         );
     }
@@ -62,7 +78,7 @@ public class CashMachine {
         if (errorExists) {
             displayString = errorMessage;
         } else {
-            displayString = accountData != null ? accountData.toString() : "Try account 1000 or 2000 and click submit.";
+            displayString = accountData != null ? accountData.toString() : "Login failed. Please confirm your credentials and try again.";
         }
         return displayString;
     }
