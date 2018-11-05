@@ -9,3 +9,7 @@
 .table-view .column-header {
     -fx-background-color: lightgray;
 }
+
+.table-view .column-header .label .text {
+    -fx-font-family: Futura;
+}

@@ -101,6 +101,7 @@ public class AccountController {
         int amount = Integer.parseInt(amountField.getText());
 
         String type = "";
+        int before = CashMachine.INSTANCE.getBalance();
 
         switch (tabPane.getSelectionModel().getSelectedItem().getText())
         {
@@ -114,7 +115,9 @@ public class AccountController {
         }
         textArea.setText(CashMachine.INSTANCE.toString());
 
-        data.add(0, new Transaction(type, Integer.parseInt(amountField.getText()), CashMachine.INSTANCE.getBalance()));
+        if (CashMachine.INSTANCE.getBalance() != before) {
+            data.add(0, new Transaction(type, Integer.parseInt(amountField.getText()), CashMachine.INSTANCE.getBalance()));
+        }
     }
 
     @FXML

@@ -10,7 +10,7 @@ public class Transaction {
     private int balance;
 
     public String getCurrentTime() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd-yy HH:mm");
         Date now = new Date();
         String strDate = simpleDateFormat.format(now);
         return strDate;
