@@ -1,12 +1,20 @@
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTabPane;
 import com.jfoenix.controls.JFXTextArea;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import rocks.zipcode.atm.CashMachine;
+import rocks.zipcode.atm.bank.Transaction;
 
+import java.util.Date;
+import java.util.Observable;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -35,6 +43,15 @@ public class AccountController {
                 amountField.setText(newValue.replaceAll("[^\\d]", ""));
             }
         });
+
+        table.setEditable(true);
+        typCol.setCellValueFactory(new PropertyValueFactory<Transaction, String>("credit"));
+        datCol.setCellValueFactory(new PropertyValueFactory<Transaction, Date>("date"));
+        amtCol.setCellValueFactory(new PropertyValueFactory<Transaction, Long>("amount"));
+        balCol.setCellValueFactory(new PropertyValueFactory<Transaction, Long>("balance"));
+        table.getColumns().addAll(typCol,datCol,amtCol,balCol);
+        table.setItems(data);
+
     }
 
     @FXML
@@ -58,6 +75,17 @@ public class AccountController {
     }
 
     @FXML
+    private TableView<Transaction> table;
+
+    private final ObservableList<Transaction> data =
+            FXCollections.observableArrayList();
+
+    @FXML TableColumn<Transaction, String> typCol;
+    @FXML TableColumn<Transaction, Date> datCol;
+    @FXML TableColumn<Transaction, Long> amtCol;
+    @FXML TableColumn<Transaction, Long> balCol;
+
+    @FXML
     void transactionTab(Event event) {
         if (amountField.isDisabled()) {
             amountField.setDisable(false);
@@ -72,15 +100,21 @@ public class AccountController {
     void submit(Event event) {
         int amount = Integer.parseInt(amountField.getText());
 
+        String type = "";
+
         switch (tabPane.getSelectionModel().getSelectedItem().getText())
         {
             case "Withdraw": CashMachine.INSTANCE.withdraw(amount);
+                type = "Debit";
                 break;
             case "Deposit": CashMachine.INSTANCE.deposit(amount);
+                type = "Credit";
                 break;
             default: textArea.setText("Please select a tab.");
         }
         textArea.setText(CashMachine.INSTANCE.toString());
+
+        data.add(0, new Transaction(type, Integer.parseInt(amountField.getText()), CashMachine.INSTANCE.getBalance()));
     }
 
     @FXML

@@ -99,4 +99,8 @@ public class CashMachine {
             System.out.println("Error: " + e.getMessage());
         }
     }
+
+    public int getBalance() {
+        return accountData.getBalance();
+    }
 }

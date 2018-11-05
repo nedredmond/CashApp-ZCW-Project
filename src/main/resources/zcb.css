@@ -5,3 +5,7 @@
 .jfx-tab-pane:top .depth-container .tab-header-area .headers-region .tab .jfx-rippler .tab-container .tab-label .text {
     -fx-font: 18 Futura;
 }
+
+.table-view .column-header {
+    -fx-background-color: lightgray;
+}

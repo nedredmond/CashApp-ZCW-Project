@@ -9,11 +9,20 @@ import rocks.zipcode.atm.CashMachine;
  */
 public class LoginController {
 
-    /**
-     * Event handler fired when the user requests a new vista.
-     *
-     * @param event the event that triggered the handler.
-     */
+//    /**
+//     * Event handler fired when the user requests a new vista.
+//     *
+//     * @param event the event that triggered the handler.
+//     */
+
+    @FXML
+    protected void initialize() {
+        pinEntry.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                pinEntry.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+    }
 
     @FXML
     private JFXTextField emailEntry;
