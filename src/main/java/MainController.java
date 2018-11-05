@@ -1,11 +1,9 @@
-package rocks.zipcode.atm;
-
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
 
 /**
- * rocks.zipcode.atm.Main controller class for the entire layout.
+ * Main controller class for the entire layout.
  */
 public class MainController {
 

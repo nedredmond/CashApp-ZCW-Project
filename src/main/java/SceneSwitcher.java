@@ -1,5 +1,3 @@
-package rocks.zipcode.atm;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 

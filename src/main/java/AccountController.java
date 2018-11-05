@@ -1,5 +1,3 @@
-package rocks.zipcode.atm;
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTabPane;
 import com.jfoenix.controls.JFXTextArea;
@@ -7,6 +5,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
+import rocks.zipcode.atm.CashMachine;
 
 import java.util.concurrent.TimeUnit;
 

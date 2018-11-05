@@ -12,13 +12,13 @@
 
 <?import javafx.scene.text.Font?>
 
-<!--<StackPane fx:id="vista2" xmlns:fx="http://javafx.com/fxml" fx:controller="rocks.zipcode.atm.AccountController">-->
+<!--<StackPane fx:id="vista2" xmlns:fx="http://javafx.com/fxml" fx:controller="AccountController">-->
 <!--<children>-->
 <!--<Button mnemonicParsing="false" onAction="#previousPane" text="Previous Pane" />-->
 <!--</children>-->
 <!--</StackPane>-->
 
-<VBox fx:id="vista2" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rocks.zipcode.atm.AccountController">
+<VBox fx:id="vista2" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccountController">
   <children>
     <JFXTabPane fx:id="tabPane" prefHeight="60.0" prefWidth="466.0">
       <tabs>

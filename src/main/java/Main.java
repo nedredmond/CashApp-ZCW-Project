@@ -1,5 +1,3 @@
-package rocks.zipcode.atm;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,13 +7,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * rocks.zipcode.atm.Main application class.
+ * Main application class.
  */
 public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception{
-        stage.setTitle("Vista Viewer");
+        stage.setTitle("Zip Cloud Bank");
 
         stage.setScene(
             createScene(
@@ -28,7 +26,7 @@ public class Main extends Application {
 
     /**
      * Loads the main fxml layout.
-     * Sets up the vista switching rocks.zipcode.atm.SceneSwitcher.
+     * Sets up the vista switching SceneSwitcher.
      * Loads the first vista into the fxml layout.
      *
      * @return the loaded pane.
